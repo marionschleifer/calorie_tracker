@@ -1,0 +1,22 @@
+= form_for(@entry) do |f|
+  - if @entry.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@entry.errors.count, "error")
+        prohibited this game from being saved:
+
+      %ul
+        - @entry.errors.full_messages.each do |message|
+          %li= message
+
+  .field.form-group
+    = f.label :food
+    %br
+    = f.text_field :food
+  .field.form-group
+    = f.label :calories
+    %br
+    = f.text_field :calories
+    %br
+    %br
+  .actions= f.submit
