@@ -33,6 +33,6 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:food, :calories)
+    params.require(:entry).permit(:food, :calories, :date)
   end
 end
