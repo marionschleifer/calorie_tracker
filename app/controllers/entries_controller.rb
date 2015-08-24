@@ -2,10 +2,10 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.all
+    @entry = Entry.new
   end
 
   def new
-    @entry = Entry.new
   end
 
   def create
@@ -14,7 +14,8 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to entries_path, notice: 'Entry was successfully created.'
     else
-      render :new
+      @entries = Entry.all
+      render :index
     end
   end
 

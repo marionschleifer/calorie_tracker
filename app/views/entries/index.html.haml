@@ -1,17 +1,19 @@
-%h2 Entries
-%table
-  %thead
-    %tr
-      %th Food
-      %th Calories
-      %th Date
-  %tbody
-    - @entries.each do |entry|
+%div.container
+  %h1 Health Challenge
+
+  = render 'form'
+
+  %table
+    %thead
       %tr
-        %td= entry.food
-        %td= entry.calories
-        %td= entry.date
-        %td= link_to 'Show', entry
-        %td= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Entry', new_entry_path
+        %th Food
+        %th Calories
+        %th Date
+    %tbody
+      - @entries.each do |entry|
+        %tr
+          %td= entry.food
+          %td= entry.calories
+          %td= entry.date
+          %td= link_to 'Show', entry
+          %td= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' }
