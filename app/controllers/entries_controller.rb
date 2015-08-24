@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
 
     if @entry.save
-      redirect_to @entry, notice: 'Entry was successfully created.'
+      redirect_to entries_path, notice: 'Entry was successfully created.'
     else
       render :new
     end
