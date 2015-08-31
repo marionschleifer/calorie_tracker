@@ -1,10 +1,19 @@
-%h2 Entry
+%h1 Entry
 
-= @entry.food
-= @entry.calories
-= @entry.date
+%table
+  %tr
+    %td.title Food
+    %td.title.right kcal
+
+  %tr
+    %td= @entry.food
+    %td.right= @entry.calories
+
+%br/
+
+= link_to 'Destroy', @entry, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br/
 %br/
 
-= link_to "Index", entries_path
+= link_to "Back", entries_path
