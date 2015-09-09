@@ -1,7 +1,30 @@
 %h1 Health Challenge
+%ul.nav.nav-tabs
+  - @week.each do |day|
+    %li{:role => "presentation", class: (day[:selected] ? 'active' : '')}
+      = link_to day[:name], entries_path(date: day[:date])
 
+
+
+    %li{:role => "presentation", class: ((@monday+1).to_s == params[:date] ? 'active' : '')}
+      = link_to 'Dienstag', entries_path(date: @monday + 1)
+    %li{:role => "presentation", class: ((@monday+2).to_s == params[:date] ? 'active' : '')}
+      = link_to 'Mittwoch', entries_path(date: @monday + 2)
+    %li{:role => "presentation", class: ((@monday+3).to_s == params[:date] ? 'active' : '')}
+      = link_to 'Donnerstag', entries_path(date: @monday + 3)
+    %li{:role => "presentation", class: ((@monday+4).to_s == params[:date] ? 'active' : '')}
+      = link_to 'Freitag', entries_path(date: @monday + 4)
+    %li{:role => "presentation", class: ((@monday+5).to_s == params[:date] ? 'active' : '')}
+      = link_to 'Samstag', entries_path(date: @monday + 5)
+    %li{:role => "presentation", class: ((@monday+6).to_s == params[:date] ? 'active' : '')}
+      = link_to 'Sonntag', entries_path(date: @monday + 6)
+
+
+
+
+%br
 = render 'form'
-
+%br
 %table
   %tbody
     - @entries.each do |entry|

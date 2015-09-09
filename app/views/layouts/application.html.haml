@@ -7,5 +7,12 @@
       = javascript_include_tag 'application', 'data-turbolinks-track' => true
       = csrf_meta_tags
   %body
-    %div.container
+    - if logged_in?
+      .container
+        %nav.navbar-text.navbar-right
+          Signed in as #{current_user.name} –
+          = link_to 'Abmelden', sessions_path, method: :delete
+
+    .container
+      = flash[:notice] if flash[:notice].present?
       = yield

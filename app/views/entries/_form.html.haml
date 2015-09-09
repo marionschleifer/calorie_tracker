@@ -1,6 +1,7 @@
 = form_for(@entry) do |f|
-  .field.form-group
-    = f.text_field :date, value: Date.today, hidden: true
-    = f.text_field :food, :autofocus=> true, :placeholder => "Food", class: 'food'
-    = f.text_field :calories, :placeholder => "kcal", class: 'calories'
-    = f.submit "Speichern", :id => "", :style => "display: none;"
+  .field.form-inline
+    .form-group
+      = f.text_field :date, hidden: true
+      = f.text_field :food, :autofocus=> true, :placeholder => "Food", class: 'food form-control'
+      = f.text_field :calories, :placeholder => "kcal", class: 'calories form-control'
+      = f.submit "Speichern", :id => "", :style => "display: none;"
