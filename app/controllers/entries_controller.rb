@@ -1,54 +1,9 @@
 class EntriesController < ApplicationController
 
-  def active
-    if (@monday+1).to_s == params[:date] ? 'active' : ''
-      true
-    else
-      false
-    end
-  end
-
   def index
     @entry = Entry.new(date: params[:date])
-    @monday = Date.current.beginning_of_week
-    @week = [
-      {
-        name: "Monday",
-        selected: active,
-        date: @monday
-      },
-      {
-        name: "Dienstag",
-        selected: active,
-        date: @monday + 1
-      },
-      {
-        name: "Mittwoch",
-        selected: active,
-        date: @monday + 2
-      },
-      {
-        name: "Donnerstag",
-        selected: active,
-        date: @monday + 3
-      },
-      {
-        name: "Freitag",
-        selected: active,
-        date: @monday + 4
-      },
-      {
-        name: "Samstag",
-        selected: active,
-        date: @monday + 5
-      },
-      {
-        name: "Sonntag",
-        selected: active,
-        date: @monday + 6
-      },
-    ]
     @entries = current_user.entries.where(date: params[:date])
+    @week = week_data
   end
 
   def create
@@ -57,8 +12,8 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to entries_path(date: @entry.date), notice: 'Entry was successfully created.'
     else
-      @monday = Date.current.beginning_of_week
-      @entries = current_user.entries
+      @entries = current_user.entries.where(date: @entry.date)
+      @week = week_data
       render :index
     end
   end
@@ -79,5 +34,49 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(:food, :calories, :date)
+  end
+
+  def week_data
+    [
+      {
+        name: "Monday",
+        selected: (last_monday).to_s == params[:date],
+        date: last_monday
+      },
+      {
+        name: "Dienstag",
+        selected: (last_monday+1).to_s == params[:date],
+        date: last_monday + 1
+      },
+      {
+        name: "Mittwoch",
+        selected: (last_monday+2).to_s == params[:date],
+        date: last_monday + 2
+      },
+      {
+        name: "Donnerstag",
+        selected: (last_monday+3).to_s == params[:date],
+        date: last_monday + 3
+      },
+      {
+        name: "Freitag",
+        selected: (last_monday+4).to_s == params[:date],
+        date: last_monday + 4
+      },
+      {
+        name: "Samstag",
+        selected: (last_monday+5).to_s == params[:date],
+        date: last_monday + 5
+      },
+      {
+        name: "Sonntag",
+        selected: (last_monday+6).to_s == params[:date],
+        date: last_monday + 6
+      },
+    ]
+  end
+
+  def last_monday
+    Date.current.beginning_of_week
   end
 end
