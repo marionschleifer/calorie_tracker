@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_filter :ensure_logged_in
+  before_action :ensure_logged_in
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
