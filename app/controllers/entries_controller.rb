@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.find(params[:id])
     @entry.destroy
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to entries_path(date: @entry.date), notice: 'Entry was successfully destroyed.' }
     end
   end
 
@@ -45,32 +45,32 @@ class EntriesController < ApplicationController
       },
       {
         name: "Dienstag",
-        selected: (last_monday+1).to_s == params[:date],
+        selected: (last_monday + 1).to_s == params[:date],
         date: last_monday + 1
       },
       {
         name: "Mittwoch",
-        selected: (last_monday+2).to_s == params[:date],
+        selected: (last_monday + 2).to_s == params[:date],
         date: last_monday + 2
       },
       {
         name: "Donnerstag",
-        selected: (last_monday+3).to_s == params[:date],
+        selected: (last_monday + 3).to_s == params[:date],
         date: last_monday + 3
       },
       {
         name: "Freitag",
-        selected: (last_monday+4).to_s == params[:date],
+        selected: (last_monday + 4).to_s == params[:date],
         date: last_monday + 4
       },
       {
         name: "Samstag",
-        selected: (last_monday+5).to_s == params[:date],
+        selected: (last_monday + 5).to_s == params[:date],
         date: last_monday + 5
       },
       {
         name: "Sonntag",
-        selected: (last_monday+6).to_s == params[:date],
+        selected: (last_monday + 6).to_s == params[:date],
         date: last_monday + 6
       },
     ]

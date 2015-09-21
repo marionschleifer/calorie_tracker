@@ -8,11 +8,11 @@
       = csrf_meta_tags
   %body
     - if logged_in?
-      .container
-        %nav.navbar-text.navbar-right
-          Signed in as #{current_user.name} –
-          = link_to 'Abmelden', sessions_path, method: :delete
-
+      %nav.navbar.navbar-default.navbar-static-top
+        .container
+          %nav.navbar-text.navbar-right
+            Signed in as #{current_user.name} –
+            = link_to 'Abmelden', sessions_path, method: :delete
     .container
       = flash[:notice] if flash[:notice].present?
       = yield

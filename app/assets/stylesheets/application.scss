@@ -1,3 +1,4 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* HTML Classes */
@@ -6,46 +7,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-/*table {
-  width: 100%;
-  margin-top: 20px;
-  border-spacing: 0;
+td {
+  padding-right: 90px;
 }
 
-td.title {
-  width: 100%;
-}
-
-a {
-  text-decoration: none;
-}
-
-.food {
-  width: 400px;
-}
-
-.calories {
-  width: 220px;
-  text-align: right;
-  float: right;
-  display: block;
-}
-
-.right {
-  float:right;
-}
-
-/* Errors */
-
-/*.field_with_errors {
-  display: inline;
-}
-
-.field_with_errors input {
-  border: 1px solid red;
-}
-
-.field_with_errors input:focus {
-  outline: none;
-}
-*/

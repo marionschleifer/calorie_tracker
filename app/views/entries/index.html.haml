@@ -10,5 +10,15 @@
   %tbody
     - @entries.each do |entry|
       %tr
-        %td.food= link_to entry.food, entry
+        %td.food= entry.food
         %td.calories= entry.calories
+        %td
+          = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+            %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
+- total = 0
+- @entries.each do |entry|
+  - total += entry.calories
+%br
+%br
+%strong= "Total:"
+%strong= total

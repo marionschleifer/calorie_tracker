@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to entries_path
     else
-      redirect_to new_path, :flash => { :error => "Email und Passwort stimmen nicht überein" }
+      redirect_to new_sessions_path, :flash => { :error => "Email und Passwort stimmen nicht überein" }
     end
   end
 
