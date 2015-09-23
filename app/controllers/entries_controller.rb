@@ -1,9 +1,11 @@
 class EntriesController < ApplicationController
 
   def index
+    @week = week_data
+    params[:date] ||= @week.first[:date]
+
     @entry = Entry.new(date: params[:date])
     @entries = current_user.entries.where(date: params[:date])
-    @week = week_data
   end
 
   def create
