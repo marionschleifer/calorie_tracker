@@ -41,7 +41,7 @@ class EntriesController < ApplicationController
   def week_data
     [
       {
-        name: "Monday",
+        name: "Montag",
         selected: (last_monday).to_s == params[:date],
         date: last_monday
       },
