@@ -6,8 +6,12 @@
       = link_to entries_path(date: date), class: 'text-center' do
         = l(date, format: :dayname)
         %br
-        %strong= User::CalorieCalculator.new(current_user, date).remaining
-
+        - if User::CalorieCalculator.new(current_user, date).remaining < 0
+          %strong.text-danger= User::CalorieCalculator.new(current_user, date).remaining
+        -else
+          %strong.text-success= User::CalorieCalculator.new(current_user, date).remaining
+  %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Heute
+  %a.btn.btn-default.glyphicon.glyphicon-calendar
 %br
 = render 'form'
 %br
@@ -16,16 +20,21 @@
     - @entries.each do |entry|
       %tr
         %td.food= entry.food
-        %td.calories= entry.calories
-        %td
-          = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-            %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
-%br
-%br
+        - if entry.calories < 0
+          %td.calories.text-success= entry.calories
+          %td
+            = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+              %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
+        - else
+          %td.calories.text-danger= entry.calories
+          %td
+            = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+              %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
 
-%strong= "Verbleibend:"
-
-- total = current_user.target_calories
-- @entries.each do |entry|
-  - total -= entry.calories
-= total
+:coffee
+  $ ->
+    $('a.btn.btn-default.glyphicon.glyphicon-calendar').datepicker(todayHighlight: true, weekStart: 1).on 'changeDate', (e) ->
+      day = e.date.getDate()
+      month = e.date.getMonth() + 1
+      year = e.date.getFullYear()
+      window.location = "/entries?date=" + year + "-" + month + "-" + day
