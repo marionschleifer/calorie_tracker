@@ -1,8 +1,13 @@
 %h1 Health Challenge
+%br
 %ul.nav.nav-tabs
-  - @week.each do |day|
-    %li{:role => "presentation", class: (day[:selected] ? 'active' : '')}
-      = link_to day[:name], entries_path(date: day[:date])
+  - (@date.beginning_of_week..@date.end_of_week).each do |date|
+    %li{:role => "presentation", class: (date == @date ? 'active' : '')}
+      = link_to entries_path(date: date), class: 'text-center' do
+        = l(date, format: :dayname)
+        %br
+        %strong= User::CalorieCalculator.new(current_user, date).remaining
+
 %br
 = render 'form'
 %br
@@ -15,10 +20,12 @@
         %td
           = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
             %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
-- total = 0
+%br
+%br
+
+%strong= "Verbleibend:"
+
+- total = current_user.target_calories
 - @entries.each do |entry|
-  - total += entry.calories
-%br
-%br
-%strong= "Total:"
-%strong= total
+  - total -= entry.calories
+= total
