@@ -1,9 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  food: MyString
-  calories: 1
+strawberries:
+  food: Strawberries
+  calories: 200
+  date: 2015-01-01
+  user: tobias
 
-two:
-  food: MyString
-  calories: 1
+enchiladas:
+  food: Enchiladas
+  calories: 400
+  date: 2015-02-02
+  user: marion
+
+eggnog:
+  food: Eggnog
+  calories: 400
+  date: 2015-03-03
+  user: marion

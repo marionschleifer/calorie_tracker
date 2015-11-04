@@ -22,9 +22,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def remaining_calories
+    total = current_user.target_calories
+    @entries.each do |entry|
+      total -= entry.calories
+    end
+    return total
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :target_calories)
   end
+
 end

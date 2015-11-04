@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
+tobias:
+  name: tobias
+  email: tobias.miesel@simplificator.com
+  target_calories: 2000
 
-two:
-  name: MyString
-  email: MyString
+marion:
+  name: marion
+  email: marion.schleifer@simplificator.com
+  target_calories: 1800

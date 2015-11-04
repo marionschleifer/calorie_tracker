@@ -1,11 +1,10 @@
 class EntriesController < ApplicationController
 
   def index
-    @week = week_data
-    params[:date] ||= @week.first[:date]
+    @date = params[:date].try(:to_date) || Date.current
 
-    @entry = Entry.new(date: params[:date])
-    @entries = current_user.entries.where(date: params[:date])
+    @entry = Entry.new(date: @date)
+    @entries = current_user.entries.where(date: @date)
   end
 
   def create
@@ -32,53 +31,10 @@ class EntriesController < ApplicationController
     end
   end
 
+
   private
 
   def entry_params
     params.require(:entry).permit(:food, :calories, :date)
-  end
-
-  def week_data
-    [
-      {
-        name: "Montag",
-        selected: (last_monday).to_s == params[:date],
-        date: last_monday
-      },
-      {
-        name: "Dienstag",
-        selected: (last_monday + 1).to_s == params[:date],
-        date: last_monday + 1
-      },
-      {
-        name: "Mittwoch",
-        selected: (last_monday + 2).to_s == params[:date],
-        date: last_monday + 2
-      },
-      {
-        name: "Donnerstag",
-        selected: (last_monday + 3).to_s == params[:date],
-        date: last_monday + 3
-      },
-      {
-        name: "Freitag",
-        selected: (last_monday + 4).to_s == params[:date],
-        date: last_monday + 4
-      },
-      {
-        name: "Samstag",
-        selected: (last_monday + 5).to_s == params[:date],
-        date: last_monday + 5
-      },
-      {
-        name: "Sonntag",
-        selected: (last_monday + 6).to_s == params[:date],
-        date: last_monday + 6
-      },
-    ]
-  end
-
-  def last_monday
-    Date.current.beginning_of_week
   end
 end
