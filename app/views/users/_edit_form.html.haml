@@ -1,0 +1,12 @@
+= form_for(@user) do |f|
+  .field.form-group
+    = f.label :email
+    %br
+    = f.text_field :email, :autofocus=> true
+    %br
+    = f.label :slack_url
+    %br
+    = f.text_field :slack_url
+    %br
+    %br
+    = f.submit "Speichern", :id => ""
