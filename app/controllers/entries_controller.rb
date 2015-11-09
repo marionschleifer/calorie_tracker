@@ -34,8 +34,8 @@ class EntriesController < ApplicationController
   end
 
   def send_message
-    notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
-    notifier.ping "Bitte ckal eintragen!"
+    notifier = Slack::Notifier.new(current_user.slack_url)
+    notifier.ping "Bitte kcal eintragen!"
     redirect_to entries_path
   end
 

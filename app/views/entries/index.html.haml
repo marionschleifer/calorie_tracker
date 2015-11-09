@@ -14,6 +14,8 @@
   %a.btn.btn-default.glyphicon.glyphicon-calendar
   = link_to send_message_entries_path, method: :post do
     %span.btn.btn-default.glyphicon.glyphicon-bullhorn
+  = link_to edit_user_path(current_user) do
+    %span.btn.btn-default.glyphicon.glyphicon-user
 %br
 = render 'form'
 %br
