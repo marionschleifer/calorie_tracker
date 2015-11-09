@@ -12,6 +12,8 @@
           %strong.text-success= User::CalorieCalculator.new(current_user, date).remaining
   %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Heute
   %a.btn.btn-default.glyphicon.glyphicon-calendar
+  = link_to send_message_entries_path, method: :post do
+    %span.btn.btn-default.glyphicon.glyphicon-bullhorn
 %br
 = render 'form'
 %br
