@@ -30,6 +30,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'slack-notifier'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

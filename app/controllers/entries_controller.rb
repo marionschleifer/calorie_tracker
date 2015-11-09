@@ -1,3 +1,5 @@
+require 'slack-notifier'
+
 class EntriesController < ApplicationController
 
   def index
@@ -29,6 +31,12 @@ class EntriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to entries_path(date: @entry.date), notice: 'Entry was successfully destroyed.' }
     end
+  end
+
+  def send_message
+    notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+    notifier.ping "Bitte ckal eintragen!"
+    redirect_to entries_path
   end
 
 
