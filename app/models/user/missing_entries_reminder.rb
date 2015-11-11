@@ -29,5 +29,3 @@ class User::MissingEntriesReminderJob
     return unless @user.entries[Date.today] != nil
   end
 end
-
-User::MissingEntriesReminderJob.run
