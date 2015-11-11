@@ -26,7 +26,7 @@ class User::MissingEntriesReminderJob
   end
 
   def entries_today?
-    # check if user has entries today
+    return unless @user.entries[Date.today] != nil
   end
 end
 

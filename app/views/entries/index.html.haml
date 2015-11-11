@@ -1,15 +1,4 @@
-%h1 Health Challenge
-%br
-%ul.nav.nav-tabs
-  - (@date.beginning_of_week..@date.end_of_week).each do |date|
-    %li{:role => "presentation", class: (date == @date ? 'active' : '')}
-      = link_to entries_path(date: date), class: 'text-center' do
-        = l(date, format: :dayname)
-        %br
-        - if User::CalorieCalculator.new(current_user, date).remaining < 0
-          %strong.text-danger= User::CalorieCalculator.new(current_user, date).remaining
-        -else
-          %strong.text-success= User::CalorieCalculator.new(current_user, date).remaining
+%div.menu
   %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Heute
   %a.btn.btn-default.glyphicon.glyphicon-calendar
   = link_to send_message_entries_path, method: :post do
@@ -17,23 +6,43 @@
   = link_to edit_user_path(current_user) do
     %span.btn.btn-default.glyphicon.glyphicon-user
 %br
-= render 'form'
 %br
-%table
-  %tbody
-    - @entries.each do |entry|
-      %tr
-        %td.food= entry.food
-        - if entry.calories < 0
-          %td.calories.text-success= entry.calories
-          %td
-            = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-              %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
-        - else
-          %td.calories.text-danger= entry.calories
-          %td
-            = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-              %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
+%h1 Health Challenge
+%container.navbar
+  %ul.nav.nav-tabs
+    - (@date.beginning_of_week..@date.end_of_week).each do |date|
+      %li{:role => "presentation", class: (date == @date ? 'active' : '')}
+        = link_to entries_path(date: date), class: 'text-center' do
+          = l(date, format: :dayname)
+          %br
+          - if User::CalorieCalculator.new(current_user, date).remaining < 0
+            %strong.text-danger= User::CalorieCalculator.new(current_user, date).remaining
+          - else
+            %strong.text-success= User::CalorieCalculator.new(current_user, date).remaining
+%br
+%br
+%div.form
+  = render 'form'
+%br
+%br
+%br
+%br
+%div.table
+  %table
+    %tbody
+      - @entries.each do |entry|
+        %tr
+          %td.food= entry.food
+          - if entry.calories < 0
+            %td.calories.text-success= entry.calories
+            %td
+              = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+                %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
+          - else
+            %td.calories.text-danger= entry.calories
+            %td
+              = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+                %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
 
 :coffee
   $ ->

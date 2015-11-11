@@ -11,3 +11,37 @@ body {
 td {
   padding-right: 90px;
 }
+
+h1 {
+  text-align: center;
+}
+
+div.menu {
+  float: right;
+}
+
+.nav-tabs > li, .nav-pills > li {
+  float: none;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+.nav-tabs, .nav-pills {
+  text-align: center;
+}
+
+div.form {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  margin: auto;
+}
+
+div.table {
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
