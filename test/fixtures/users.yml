@@ -3,9 +3,11 @@
 tobias:
   name: tobias
   email: tobias.miesel@simplificator.com
+  password: hallo1234
   target_calories: 2000
 
 marion:
   name: marion
   email: marion.schleifer@simplificator.com
+  password: hallo123
   target_calories: 1800

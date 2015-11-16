@@ -12,7 +12,7 @@
         .container
           %nav.navbar-text.navbar-right
             Signed in as #{current_user.name} –
-            = link_to 'Abmelden', sessions_path, method: :delete
+            = link_to 'Logout', sessions_path, method: :delete
     .container
       = flash[:notice] if flash[:notice].present?
       = yield

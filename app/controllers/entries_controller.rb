@@ -21,10 +21,6 @@ class EntriesController < ApplicationController
     end
   end
 
-  def show
-    @entry = current_user.entries.find(params[:id])
-  end
-
   def destroy
     @entry = current_user.entries.find(params[:id])
     @entry.destroy

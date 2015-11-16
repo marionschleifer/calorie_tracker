@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_logged_in, only: [:new, :create]
 
-  def index
-    @users = User.all
-  end
-
   def new
     @user = User.new
   end
@@ -12,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path, notice: 'User was successfully created.'
+      redirect_to entries_path, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -29,10 +25,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   def remaining_calories
