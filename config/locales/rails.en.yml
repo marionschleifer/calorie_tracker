@@ -35,6 +35,7 @@ en:
       long: "%B %d, %Y"
       short: "%b %d"
       dayname: "%A"
+      dayname_abbreviation: "%a"
     month_names:
     -
     - January

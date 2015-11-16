@@ -1,5 +1,5 @@
 %div.menu
-  %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Heute
+  %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Today
   %a.btn.btn-default.glyphicon.glyphicon-calendar
   = link_to send_message_entries_path, method: :post do
     %span.btn.btn-default.glyphicon.glyphicon-bullhorn
@@ -13,7 +13,7 @@
     - (@date.beginning_of_week..@date.end_of_week).each do |date|
       %li{:role => "presentation", class: (date == @date ? 'active' : '')}
         = link_to entries_path(date: date), class: 'text-center' do
-          = l(date, format: :dayname)
+          = l(date, format: :dayname_abbreviation)
           %br
           - if User::CalorieCalculator.new(current_user, date).remaining < 0
             %strong.text-danger= User::CalorieCalculator.new(current_user, date).remaining
