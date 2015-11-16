@@ -10,8 +10,20 @@ body {
 }
 
 td {
-  padding-right: 90px;
   font-size: 20px;
+}
+
+td.food {
+  width: 305px;
+}
+
+td.calories {
+  width: 100px;
+  text-align: right;
+}
+
+td.trash {
+  padding-left: 15px;
 }
 
 h1 {
@@ -54,4 +66,13 @@ div.table {
 .submit-button {
   border-radius: 5px;
   background-color: #E8E8E8;
+}
+
+.form-control.food {
+  width: 300px;
+  margin-left: 0px;
+}
+
+.form-control.calories {
+  width: 100px;
 }

@@ -26,7 +26,6 @@
 %br
 %br
 %br
-%br
 %div.table
   %table
     %tbody
@@ -40,13 +39,17 @@
                 %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
           - else
             %td.calories.text-danger= entry.calories
-            %td
+            %td.trash
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
                 %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
-  - if User::CalorieCalculator.new(current_user, params[:date]).remaining < 0
-    %strong.text-danger= User::CalorieCalculator.new(current_user, params[:date]).remaining
-  - else
-    %strong.text-success= User::CalorieCalculator.new(current_user, params[:date]).remaining
+      %tr
+        %td
+        %td.calories
+          %br
+          - if User::CalorieCalculator.new(current_user, params[:date]).remaining < 0
+            %strong.text-danger= User::CalorieCalculator.new(current_user, params[:date]).remaining
+          - else
+            %strong.text-success= User::CalorieCalculator.new(current_user, params[:date]).remaining
 
 :coffee
   $ ->
