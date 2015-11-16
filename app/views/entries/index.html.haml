@@ -37,12 +37,12 @@
             %td.calories.text-success= entry.calories
             %td
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
+                %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
           - else
             %td.calories.text-danger= entry.calories
             %td
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.text-danger.glyphicon.glyphicon-trash{:'aria-hidden' => "true"}
+                %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
 
 :coffee
   $ ->
