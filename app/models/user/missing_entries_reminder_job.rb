@@ -10,8 +10,9 @@ class User::MissingEntriesReminderJob
   end
 
   def send_reminder
-    return if entries_today?
+    return false if entries_today?
     send_slack_reminder
+    true
   end
 
 
@@ -26,6 +27,6 @@ class User::MissingEntriesReminderJob
   end
 
   def entries_today?
-    return unless @user.entries[Date.today] != nil
+    @user.entries.where(date: Date.today).any?
   end
 end

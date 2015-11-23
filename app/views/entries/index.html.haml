@@ -47,9 +47,9 @@
         %td.calories
           %br
           - if User::CalorieCalculator.new(current_user, @date).remaining < 0
-            %strong.text-danger= User::CalorieCalculator.new(current_user, params[:date]).remaining
+            %strong.text-danger= User::CalorieCalculator.new(current_user, @date).remaining
           - else
-            %strong.text-success= User::CalorieCalculator.new(current_user, params[:date]).remaining
+            %strong.text-success= User::CalorieCalculator.new(current_user, @date).remaining
 
 :coffee
   $ ->

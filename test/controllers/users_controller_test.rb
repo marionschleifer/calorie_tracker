@@ -20,15 +20,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  # test "get edit" do
-  #   get :edit, id: @marion
-  #   assert_response :success
-  # end
-
-  # test "unsuccessful update" do
-  #   post :update, id: 123
-  #   assert_response :success
-  # end
+  test "get edit" do
+    session[:user_id] = @marion.id
+    get :edit, id: @marion
+    assert_response :success
+  end
 
   test "post successful update" do
     post :update, id: @marion

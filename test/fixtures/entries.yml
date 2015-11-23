@@ -3,17 +3,17 @@
 strawberries:
   food: Strawberries
   calories: 200
-  date: 2015-01-01
+  date: <%= Date.today - 1 %>
   user: tobias
 
 enchiladas:
   food: Enchiladas
   calories: 400
-  date: 2015-02-02
+  date: <%= Date.today %>
   user: marion
 
 eggnog:
   food: Eggnog
   calories: 400
-  date: 2015-03-03
+  date: <%= Date.today - 1 %>
   user: marion

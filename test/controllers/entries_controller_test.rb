@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UsersControllerTest < ActionController::TestCase
+class EntriesControllerTest < ActionController::TestCase
   setup do
     @eggnog = entries(:eggnog)
     @marion = users(:marion)
@@ -11,13 +11,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  # test "post unsuccessfull create" do
-  #   post :create, user: @marion, entry: { food: 'String Cheese' }
-  #   assert_response :success
-  # end
+  test "post create" do
+    post :create, entry: { food: 'String Cheese', calories: 200 }
+    assert_response :redirect
+  end
 
-  # test "get destroy" do
-  #   get :destroy
-  #   assert_response :success
-  # end
+  test "delete destroy" do
+    delete :destroy, id: @eggnog
+    assert_response :redirect
+  end
 end
