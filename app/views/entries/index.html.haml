@@ -34,7 +34,7 @@
           %td.food= entry.food
           - if entry.calories < 0
             %td.calories.text-success= entry.calories
-            %td
+            %td.trash
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
                 %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
           - else
@@ -43,10 +43,10 @@
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
                 %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
       %tr
-        %td
+        %td.food
         %td.calories
           %br
-          - if User::CalorieCalculator.new(current_user, params[:date]).remaining < 0
+          - if User::CalorieCalculator.new(current_user, @date).remaining < 0
             %strong.text-danger= User::CalorieCalculator.new(current_user, params[:date]).remaining
           - else
             %strong.text-success= User::CalorieCalculator.new(current_user, params[:date]).remaining
