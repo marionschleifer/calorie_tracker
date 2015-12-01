@@ -20,9 +20,10 @@ class User::MissingEntriesReminderJob
 
   def send_slack_reminder
     if Rails.env.production?
-      Slack::Notifier.new(@user.slack_url).ping("Bitte kcal eintragen!")
+      Slack::Notifier.new(@user.slack_url).ping("Bitte kcal eintragen! #{href="http://awesomecalories.herokuapp.com/"}")
     else
       puts "[SLACK] Sending Reminder to #{@user.name}..."
+      puts "Bitte kcal eintragen! #{href="http://awesomecalories.herokuapp.com/"}"
     end
   end
 
