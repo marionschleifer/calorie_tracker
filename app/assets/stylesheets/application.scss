@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-datepicker3";
-
+@import "elements/*";
 /* HTML Classes */
 
 body {
@@ -45,13 +45,13 @@ div.menu {
   text-align: center;
 }
 
-div.form {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  text-align: center;
-  margin: auto;
-}
+// div.form {
+//   position: absolute;
+//   width: 100%;
+//   left: 0;
+//   text-align: center;
+//   margin: auto;
+// }
 
 div.table {
   width: 40%;
@@ -63,10 +63,10 @@ div.table {
   color: grey;
 }
 
-.submit-button {
-  border-radius: 5px;
-  background-color: #E8E8E8;
-}
+// .submit-button {
+//   border-radius: 5px;
+//   background-color: #E8E8E8;
+// }
 
 .form-control.food {
   width: 300px;
@@ -75,4 +75,21 @@ div.table {
 
 .form-control.calories {
   width: 100px;
+}
+
+.container {
+  width: 60%;
+  background-color: #29a385;
+  padding: 50px;
+}
+
+.container-white {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.white {
+  color: white;
 }
