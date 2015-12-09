@@ -3,8 +3,7 @@ require 'slack-notifier'
 class EntriesController < ApplicationController
 
   def index
-    @date = params[:date].try(:to_date) || Date.current
-
+    @date = date
     @entry = Entry.new(date: @date)
     @entries = current_user.entries.where(date: @date)
   end
@@ -16,7 +15,7 @@ class EntriesController < ApplicationController
       redirect_to entries_path(date: @entry.date), notice: 'Entry was successfully created.'
     else
       @entries = current_user.entries.where(date: @entry.date)
-      @week = week_data
+      @date = date
       render :index
     end
   end
@@ -40,5 +39,9 @@ class EntriesController < ApplicationController
 
   def entry_params
     params.require(:entry).permit(:food, :calories, :date)
+  end
+
+  def date
+    params[:date].try(:to_date) || Date.current
   end
 end

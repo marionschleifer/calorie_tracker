@@ -10,10 +10,13 @@
   %body
     - if logged_in?
       %nav.navbar.navbar-default.navbar-static-top
-        .container
-          %nav.navbar-text.navbar-right
-            Signed in as #{current_user.name} –
-            = link_to 'Logout', sessions_path, method: :delete
+        %div.menu
+          %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Today
+          %a.btn.btn-default.glyphicon.glyphicon-calendar
+          = link_to edit_user_path(current_user) do
+            %span.btn.btn-default.glyphicon.glyphicon-user
+          Signed in as #{current_user.name} –
+          = link_to 'Logout', sessions_path, method: :delete
     .container
       %h1.white= yield(:title)
 

@@ -1,9 +1,8 @@
 = form_for(@entry) do |f|
-  .field.form-inline
-    .form-group
-      = f.text_field :date, hidden: true
-      = f.text_field :food, :autofocus=> true, :placeholder => "Food", class: 'form-control food'
-      = f.text_field :calories, :placeholder => "kcal", :style => "text-align: Right", class: 'form-control calories'
-      = f.submit "OK", class: "submit-button btn btn-default"
-      %br
-      %br
+  =f.text_field :date, hidden: true
+  %table.entries
+    %thead
+      %tr
+        %td.food=f.text_field :food, :autofocus=> true, :placeholder => "Food", class: 'form-control food'
+        %td.calories=f.text_field :calories, :placeholder => "kcal", class: 'form-control calories'
+        %td.action=f.submit "ok", class: "submit-button btn btn-default", class: 'light-green-button'
