@@ -28,18 +28,22 @@
   %table
     %tbody
       - @entries.each do |entry|
-        %tr
-          %td.food= entry.food
-          - if entry.calories < 0
-            %td.calories.text-success= entry.calories
-            %td.trash
-              = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
-          - else
-            %td.calories.text-danger= entry.calories
-            %td.trash
-              = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
+        - if entry.info_notice?
+          %tr
+            %td.text-muted(colspan=3)= entry.food
+        - else
+          %tr
+            %td.food= entry.food
+            - if entry.calories < 0
+              %td.calories.text-success= entry.calories
+              %td.trash
+                = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+                  %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
+            - else
+              %td.calories.text-danger= entry.calories
+              %td.trash
+                = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+                  %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
       %tr
         %td.food
         %td.calories
