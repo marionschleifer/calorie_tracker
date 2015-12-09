@@ -45,14 +45,6 @@ div.menu {
   text-align: center;
 }
 
-// div.form {
-//   position: absolute;
-//   width: 100%;
-//   left: 0;
-//   text-align: center;
-//   margin: auto;
-// }
-
 div.table {
   width: 40%;
   margin-left: 30%;
@@ -62,11 +54,6 @@ div.table {
 .grey {
   color: grey;
 }
-
-// .submit-button {
-//   border-radius: 5px;
-//   background-color: #E8E8E8;
-// }
 
 .form-control.food {
   width: 300px;
@@ -78,16 +65,20 @@ div.table {
 }
 
 .container {
+  margin-top: 20px;
   width: 60%;
   background-color: #29a385;
   padding: 50px;
 }
 
 .container-white {
-  width: 100%;
+  margin-top: 50px;
+  width: 80%;
   background-color: white;
   text-align: center;
   padding: 20px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .white {
