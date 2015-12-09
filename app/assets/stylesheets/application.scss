@@ -14,16 +14,16 @@ td {
 }
 
 td.food {
-  width: 305px;
+  text-align: left;
+  width: 355px;
 }
 
 td.calories {
-  width: 100px;
   text-align: right;
 }
 
 td.trash {
-  padding-left: 15px;
+  padding-left: 10px;
 }
 
 h1 {
@@ -45,10 +45,13 @@ div.menu {
   text-align: center;
 }
 
+div.form {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 div.table {
-  width: 40%;
-  margin-left: 30%;
-  margin-right: 30%;
+  padding-left: 54px;
 }
 
 .grey {

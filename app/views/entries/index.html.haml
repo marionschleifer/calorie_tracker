@@ -18,12 +18,8 @@
           - else
             %strong.text-success= User::CalorieCalculator.new(current_user, date).remaining
 %br
-%br
 %div.form
   = render 'form'
-%br
-%br
-%br
 %div.table
   %table
     %tbody
