@@ -1,10 +1,6 @@
 = form_tag sessions_path do
-  = label_tag :email
   = text_field_tag :email
-  = label_tag :password
+  %br
   = password_field_tag :password
-  = submit_tag "Anmelden"
-  %br
-  %br
-  = "Noch nicht registriert?"
-  = link_to 'Registrieren', new_user_path
+  = submit_tag "Anmelden", class: "btn btn-default light-green-button"
+  = link_to "Registrieren", new_user_path, class: "btn btn-default light-green-button"

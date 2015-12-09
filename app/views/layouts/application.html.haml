@@ -15,5 +15,9 @@
             Signed in as #{current_user.name} –
             = link_to 'Logout', sessions_path, method: :delete
     .container
+      %h1.white= yield(:title)
+
       = flash[:notice] if flash[:notice].present?
-      = yield
+
+      .container-white
+        = yield
