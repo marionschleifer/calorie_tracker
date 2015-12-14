@@ -24,16 +24,17 @@
             %td.calories{class: calories_class(entry)}= entry.calories
             %td.action
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
+                %span.glyphicon.glyphicon-trash.trash.grey{:'aria-hidden' => "true"}
                 %br
       %tr
         %td.total.space= "Total"
         %td.calories.space
-          - if User::CalorieCalculator.new(current_user, @date).daily_calories < 0
+          - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
             %strong.pink= User::CalorieCalculator.new(current_user, @date).daily_calories
           - else
             %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
         %td
+
 
 :coffee
   $ ->

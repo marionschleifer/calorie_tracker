@@ -15,23 +15,24 @@ td {
 
 
 table.entries {
-  width: 100%;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 15px;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
   td.food {
     text-align: left;
     width: 60%;
-    padding-right: 10px;
+    padding-right: 13px;
     color: #29a385;
+    input {
+      height: 40px;
+    }
   }
 
   td.calories {
     text-align: right;
     width: 30%;
-
-    padding-right: 10px;
     input {
+      height: 40px;
       text-align: right;
       float: right;
       color: white;
@@ -48,9 +49,12 @@ table.entries {
     padding-top: 15px;
   }
 
-  td.action {
-    width: 10%;
-    text-align: left;
+  td.submit {
+    text-align: right;
+  }
+
+  .trash {
+    text-align: right;
   }
 
   input {
@@ -71,6 +75,7 @@ table.entries {
   .light-green-button {
     background-color: #00e68a;
     color: white;
+    height: 40px;
   }
 }
 
@@ -110,12 +115,13 @@ div.menu {
 }
 
 .container-white {
-  margin-top: 50px;
-  width: 80%;
+  margin-top: 40px;
+  width: 90%;
   background-color: white;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
+  padding-bottom: 35px;
 }
 
 nav.navbar {
@@ -123,6 +129,10 @@ nav.navbar {
   width: 60%;
   margin: auto;
   padding-top: 8px;
+}
+
+.right {
+  text-align: right;
 }
 
 .white {
@@ -135,6 +145,14 @@ nav.navbar {
 
 .pink {
   color: #ff33cc;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.navbar {
+  border-radius: 0px;
 }
 
 .navbar .nav > .active > a {
