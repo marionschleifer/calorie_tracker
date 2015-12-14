@@ -1,16 +1,15 @@
 - content_for(:title, 'Health Challenge')
-%container.navbar
+%div.navbar
   %ul.nav.nav-tabs
     - (@date.beginning_of_week..@date.end_of_week).each do |date|
       %li{:role => "presentation", class: (date == @date ? 'active' : '')}
-        = link_to entries_path(date: date), class: 'text-center' do
+        = link_to entries_path(date: date), class: 'text-center green' do
           = l(date, format: :dayname_abbreviation)
           %br
-          - if User::CalorieCalculator.new(current_user, date).remaining < 0
-            %strong.text-danger= User::CalorieCalculator.new(current_user, date).remaining
+          - if User::CalorieCalculator.new(current_user, date).daily_calories >= current_user.target_calories
+            %strong.pink= User::CalorieCalculator.new(current_user, date).daily_calories
           - else
-            %strong.text-success= User::CalorieCalculator.new(current_user, date).remaining
-%br
+            %strong.green= User::CalorieCalculator.new(current_user, date).daily_calories
 =render('form')
 %table.entries
   %tbody
@@ -25,16 +24,17 @@
             %td.calories{class: calories_class(entry)}= entry.calories
             %td.action
               = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.glyphicon.glyphicon-trash.grey{:'aria-hidden' => "true"}
+                %span.glyphicon.glyphicon-trash.trash.grey{:'aria-hidden' => "true"}
                 %br
       %tr
         %td.total.space= "Total"
         %td.calories.space
-          - if User::CalorieCalculator.new(current_user, @date).remaining < 0
-            %strong.text-danger= User::CalorieCalculator.new(current_user, @date).remaining
+          - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
+            %strong.pink= User::CalorieCalculator.new(current_user, @date).daily_calories
           - else
-            %strong.text-success= User::CalorieCalculator.new(current_user, @date).remaining
+            %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
         %td
+
 
 :coffee
   $ ->

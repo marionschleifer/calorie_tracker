@@ -15,22 +15,27 @@ td {
 
 
 table.entries {
-  width: 100%;
-  margin-bottom: 15px;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
   td.food {
     text-align: left;
     width: 60%;
-    padding-right: 10px;
+    padding-right: 13px;
+    color: #29a385;
+    input {
+      height: 40px;
+    }
   }
 
   td.calories {
     text-align: right;
     width: 30%;
-
-    padding-right: 10px;
     input {
+      height: 40px;
       text-align: right;
       float: right;
+      color: white;
     }
   }
 
@@ -44,18 +49,33 @@ table.entries {
     padding-top: 15px;
   }
 
-  td.action {
-    width: 10%;
-    text-align: left;
+  td.submit {
+    text-align: right;
+  }
+
+  .trash {
+    text-align: right;
   }
 
   input {
     background-color: grey;
+    color: white;
+  }
+
+  ::-webkit-input-placeholder { color: white; }
+
+  ::-moz-placeholder { color: white; }
+
+  :-ms-input-placeholder { color: green; }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px grey inset;
   }
 
   .light-green-button {
     background-color: #00e68a;
     color: white;
+    height: 40px;
   }
 }
 
@@ -66,8 +86,10 @@ table.entries {
   zoom: 1;
 }
 
-.container.navbar {
-  background-color: blue;
+div.navbar {
+  background-color: #00e68a;
+  margin: auto;
+  padding: 0px;
 }
 
 h1 {
@@ -93,13 +115,13 @@ div.menu {
 }
 
 .container-white {
-  margin-top: 50px;
-  width: 80%;
+  margin-top: 40px;
+  width: 90%;
   background-color: white;
   text-align: center;
-  padding: 20px;
   margin-right: auto;
   margin-left: auto;
+  padding-bottom: 35px;
 }
 
 nav.navbar {
@@ -109,6 +131,33 @@ nav.navbar {
   padding-top: 8px;
 }
 
+.right {
+  text-align: right;
+}
+
 .white {
   color: white;
+}
+
+.green {
+  color: #29a385;
+}
+
+.pink {
+  color: #ff33cc;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar .nav > .active > a {
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: 3px solid white;
 }
