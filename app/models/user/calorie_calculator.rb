@@ -4,8 +4,8 @@ class User::CalorieCalculator
     @date = date
   end
 
-  def remaining
-    target_calories - daily_calories
+  def daily_calories
+    sum_of_calories
   end
 
 
@@ -17,7 +17,7 @@ class User::CalorieCalculator
     user.target_calories
   end
 
-  def daily_calories
+  def sum_of_calories
     daily_entries.sum(:calories)
   end
 

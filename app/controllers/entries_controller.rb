@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.build(entry_params)
 
     if @entry.save
-      redirect_to entries_path(date: @entry.date), notice: 'Entry was successfully created.'
+      redirect_to entries_path(date: @entry.date)
     else
       @entries = current_user.entries.where(date: @entry.date)
       @date = date
@@ -24,7 +24,7 @@ class EntriesController < ApplicationController
     @entry = current_user.entries.find(params[:id])
     @entry.destroy
     respond_to do |format|
-      format.html { redirect_to entries_path(date: @entry.date), notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to entries_path(date: @entry.date) }
     end
   end
 

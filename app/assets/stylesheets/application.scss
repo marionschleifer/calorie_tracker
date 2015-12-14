@@ -16,11 +16,14 @@ td {
 
 table.entries {
   width: 100%;
-  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
   td.food {
     text-align: left;
     width: 60%;
     padding-right: 10px;
+    color: #29a385;
   }
 
   td.calories {
@@ -31,6 +34,7 @@ table.entries {
     input {
       text-align: right;
       float: right;
+      color: white;
     }
   }
 
@@ -51,6 +55,7 @@ table.entries {
 
   input {
     background-color: grey;
+    color: white;
   }
 
   ::-webkit-input-placeholder { color: white; }
@@ -58,6 +63,10 @@ table.entries {
   ::-moz-placeholder { color: white; }
 
   :-ms-input-placeholder { color: green; }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px grey inset;
+  }
 
   .light-green-button {
     background-color: #00e68a;
@@ -72,8 +81,10 @@ table.entries {
   zoom: 1;
 }
 
-.container.navbar {
-  background-color: blue;
+div.navbar {
+  background-color: #00e68a;
+  margin: auto;
+  padding: 0px;
 }
 
 h1 {
@@ -103,7 +114,6 @@ div.menu {
   width: 80%;
   background-color: white;
   text-align: center;
-  padding: 20px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -117,4 +127,19 @@ nav.navbar {
 
 .white {
   color: white;
+}
+
+.green {
+  color: #29a385;
+}
+
+.pink {
+  color: #ff33cc;
+}
+
+.navbar .nav > .active > a {
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: 3px solid white;
 }

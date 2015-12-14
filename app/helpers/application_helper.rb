@@ -1,9 +1,9 @@
 module ApplicationHelper
   def calories_class(entry)
     if entry.calories < 0
-      'text-success'
+      'green'
     else
-      'text-danger'
+      'pink'
     end
   end
 end
