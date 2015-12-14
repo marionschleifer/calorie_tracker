@@ -53,6 +53,12 @@ table.entries {
     background-color: grey;
   }
 
+  ::-webkit-input-placeholder { color: white; }
+
+  ::-moz-placeholder { color: white; }
+
+  :-ms-input-placeholder { color: green; }
+
   .light-green-button {
     background-color: #00e68a;
     color: white;
