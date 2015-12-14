@@ -27,6 +27,9 @@
                 %span.glyphicon.glyphicon-trash.trash.grey{:'aria-hidden' => "true"}
                 %br
       %tr
+        %td(colspan=2)
+          %hr
+      %tr
         %td.total.space= "Total"
         %td.calories.space
           - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
@@ -34,7 +37,6 @@
           - else
             %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
         %td
-
 
 :coffee
   $ ->
