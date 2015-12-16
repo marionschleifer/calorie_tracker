@@ -1,0 +1,8 @@
+%tr
+  %td(colspan=2)
+    .separator
+      %span=entry.food
+    %td.action
+      = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+        %span.glyphicon.glyphicon-trash.trash.grey{:'aria-hidden' => "true"}
+        %br

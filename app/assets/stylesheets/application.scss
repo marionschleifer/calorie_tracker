@@ -160,3 +160,39 @@ nav.navbar {
     color: white;
     border-bottom: 3px solid white;
 }
+
+
+
+.separator {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #E8E8E8;
+    font-size: 10px;
+}
+
+.separator > span {
+    position: relative;
+    display: inline-block;
+}
+
+.separator > span:before,
+.separator > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #E8E8E8;
+}
+
+.separator > span:before {
+    right: 100%;
+    margin-right: 8px;
+}
+
+.separator > span:after {
+    left: 100%;
+    margin-left: 8px;
+}

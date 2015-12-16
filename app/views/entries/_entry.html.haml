@@ -1,0 +1,7 @@
+%tr
+  %td.food= entry.food
+  %td.calories{class: calories_class(entry)}= entry.calories
+  %td.action
+    = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
+      %span.glyphicon.glyphicon-trash.trash.grey{:'aria-hidden' => "true"}
+      %br
