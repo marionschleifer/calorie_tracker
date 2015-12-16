@@ -16,16 +16,10 @@
     %tbody
       - @entries.each do |entry|
         - if entry.info_notice?
-          %tr
-            %td.text-muted(colspan=3)= entry.food
+          =render 'notice', entry: entry
         - else
-          %tr
-            %td.food= entry.food
-            %td.calories{class: calories_class(entry)}= entry.calories
-            %td.action
-              = link_to entry_path(entry), :method => :delete, data: { confirm: 'Are you sure?' } do
-                %span.glyphicon.glyphicon-trash.trash.grey{:'aria-hidden' => "true"}
-                %br
+          =render 'entry', entry: entry
+
       %tr
         %td(colspan=2)
           %hr
