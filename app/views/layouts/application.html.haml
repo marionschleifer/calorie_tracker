@@ -10,13 +10,15 @@
   %body
     - if logged_in?
       %nav.navbar.navbar-default.navbar-static-top
-        %div.menu
-          %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Today
-          %a.btn.btn-default.glyphicon.glyphicon-calendar
-          = link_to edit_user_path(current_user) do
-            %span.btn.btn-default.glyphicon.glyphicon-user
-          Signed in as #{current_user.name} –
-          = link_to 'Logout', sessions_path, method: :delete
+        .row
+          .col-xs-6
+            %a.btn.btn-default{:href => entries_path(date: Date.current), :role => "button"} Today
+            %a.btn.btn-default.glyphicon.glyphicon-calendar
+          .col-xs-6.text-right
+            Signed in as #{current_user.name} –
+            = link_to 'Logout', sessions_path, method: :delete
+            = link_to edit_user_path(current_user) do
+              %span.btn.btn-default.glyphicon.glyphicon-user
     .container
       %h1.white= yield(:title)
 
