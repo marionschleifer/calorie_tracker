@@ -32,6 +32,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'slack-notifier'
 
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
