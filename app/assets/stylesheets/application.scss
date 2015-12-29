@@ -134,6 +134,10 @@ nav.navbar {
   text-align: right;
 }
 
+.left {
+  text-align: left;
+}
+
 .white {
   color: white;
 }
@@ -160,8 +164,6 @@ nav.navbar {
     color: white;
     border-bottom: 3px solid white;
 }
-
-
 
 .separator {
     display: block;
@@ -195,4 +197,22 @@ nav.navbar {
 .separator > span:after {
     left: 100%;
     margin-left: 8px;
+}
+
+.crosshair {
+  cursor: move;
+}
+
+td.bar {
+  background-color: #29a385;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 15px;
+}
+
+td.day {
+  padding-top: 15px;
+  font-size: 15px;
 }

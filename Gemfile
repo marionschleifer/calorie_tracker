@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-datepicker-rails'
 
 gem 'slack-notifier'
+
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -7,13 +7,13 @@ class CalorieCalculatorTest < ActiveSupport::TestCase
 
   test 'remaining' do
     calorie_calculator = User::CalorieCalculator.new(@marion, Date.today)
-    assert_equal expected_calories, calorie_calculator.remaining
+    assert_equal expected_calories, calorie_calculator.daily_calories
   end
 
 
   private
 
   def expected_calories
-    1800 - 400 # target calories marion - enchiladas
+    400 # enchiladas
   end
 end

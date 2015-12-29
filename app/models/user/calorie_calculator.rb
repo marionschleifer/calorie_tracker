@@ -8,6 +8,10 @@ class User::CalorieCalculator
     sum_of_calories
   end
 
+  def weekly_calories
+    sum_of_weekly_calories
+  end
+
 
   private
 
@@ -23,5 +27,9 @@ class User::CalorieCalculator
 
   def daily_entries
     user.entries.where(date: date)
+  end
+
+  def sum_of_weekly_calories
+    user.entries.where(date: date.beginning_of_week..date).sum(:calories)
   end
 end
