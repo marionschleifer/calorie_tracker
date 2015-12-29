@@ -28,11 +28,10 @@ class EntriesControllerTest < ActionController::TestCase
   test "post sort" do
     session[:user_id] = @marion.id
     post :sort, entry_ids: [@pizza, @champagne, @pudding, @enchiladas, @eggnog]
-    assert_equal(@pizza, Entry.where(user_id: @marion.id)[0])
-    assert_equal(@champagne, Entry.where(user_id: @marion.id)[1])
-    assert_equal(@pudding, Entry.where(user_id: @marion.id)[2])
-    assert_equal(@enchiladas, Entry.where(user_id: @marion.id)[3])
-    assert_equal(@eggnog, Entry.where(user_id: @marion.id)[4])
-    # puts Entry.where(user_id: @marion.id).pluck(:position).inspect
+    assert_equal 1, @pizza.reload.position
+    assert_equal 2, @champagne.reload.position
+    assert_equal 3, @pudding.reload.position
+    assert_equal 4, @enchiladas.reload.position
+    assert_equal 5, @eggnog.reload.position
   end
 end

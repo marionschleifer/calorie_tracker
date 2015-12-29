@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   def index
     @date = date
     @entry = Entry.new(date: @date)
-    @entries = current_user.entries.where(date: @date)
+    @entries = current_user.entries.where(date: @date).ordered
   end
 
   def create
@@ -39,11 +39,11 @@ class EntriesController < ApplicationController
       # entry_ids => [13, 12, 7, 17]
       params[:entry_ids].each_with_index do |entry_id, i|
         entry = current_user.entries.find(entry_id)
-        entry.position = i
+        entry.position = i + 1
         entry.save!
       end
     end
-    render nothing: true
+    head :ok
   end
 
 

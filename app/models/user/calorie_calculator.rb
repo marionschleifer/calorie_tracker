@@ -12,6 +12,16 @@ class User::CalorieCalculator
     sum_of_weekly_calories
   end
 
+  def weekly_progress
+    # 0-100
+  end
+
+  def ideal_progress
+    # 0-100
+  end
+
+
+
 
   private
 

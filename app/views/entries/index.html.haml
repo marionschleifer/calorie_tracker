@@ -30,14 +30,6 @@
         - else
           %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
       %td
-%table.entries
-  %tbody
-    %tr
-      %td.white.bar.left="#{User::CalorieCalculator.new(current_user, @date).weekly_calories} kcal"
-      %td.white.bar.right="#{current_user.target_calories*7} kcal"
-    %tr
-      %td.grey.day.left='Monday'
-      %td.grey.day.right='Sunday'
 
 :coffee
   $ ->
@@ -48,5 +40,12 @@
       window.location = "/entries?date=" + year + "-" + month + "-" + day
 
     $("#sortable").sortable
+      items: "tr.crosshair"
       axis: "y"
       appendTo: document.body
+      update: (e, ui) ->
+        order = []
+        $("#sortable tr.crosshair").each (item) ->
+          order.push(parseInt($(this).attr('id')))
+        $.post("/entries/sort", entry_ids: order)
+
