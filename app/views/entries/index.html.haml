@@ -12,25 +12,32 @@
             %strong.green= User::CalorieCalculator.new(current_user, date).daily_calories
 =render('form')
 %table.entries
-  %tbody
-    %tbody
-      - @entries.each do |entry|
-        - if entry.info_notice?
-          =render 'notice', entry: entry
-        - else
-          =render 'entry', entry: entry
+  %tbody#sortable
+    - @entries.each do |entry|
+      - if entry.info_notice?
+        =render 'notice', entry: entry
+      - else
+        =render 'entry', entry: entry
 
-      %tr
-        %td(colspan=2)
-          %hr
-      %tr
-        %td.total.space= "Total"
-        %td.calories.space
-          - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
-            %strong.pink= User::CalorieCalculator.new(current_user, @date).daily_calories
-          - else
-            %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
-        %td
+    %tr
+      %td(colspan=2)
+        %hr
+    %tr
+      %td.total.space= "Total"
+      %td.calories.space
+        - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
+          %strong.pink= User::CalorieCalculator.new(current_user, @date).daily_calories
+        - else
+          %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
+      %td
+%table.entries
+  %tbody
+    %tr
+      %td.white.bar.left="#{User::CalorieCalculator.new(current_user, @date).weekly_calories} kcal"
+      %td.white.bar.right="#{current_user.target_calories*7} kcal"
+    %tr
+      %td.grey.day.left='Monday'
+      %td.grey.day.right='Sunday'
 
 :coffee
   $ ->
@@ -39,3 +46,7 @@
       month = e.date.getMonth() + 1
       year = e.date.getFullYear()
       window.location = "/entries?date=" + year + "-" + month + "-" + day
+
+    $("#sortable").sortable
+      axis: "y"
+      appendTo: document.body

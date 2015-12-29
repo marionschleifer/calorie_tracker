@@ -34,11 +34,23 @@ class EntriesController < ApplicationController
     redirect_to entries_path
   end
 
+  def sort
+    Entry.transaction do
+      # entry_ids => [13, 12, 7, 17]
+      params[:entry_ids].each_with_index do |entry_id, i|
+        entry = current_user.entries.find(entry_id)
+        entry.position = i
+        entry.save!
+      end
+    end
+    render nothing: true
+  end
+
 
   private
 
   def entry_params
-    params.require(:entry).permit(:food, :calories, :date)
+    params.require(:entry).permit(:food, :calories, :date, :position)
   end
 
   def date

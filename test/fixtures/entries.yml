@@ -1,19 +1,49 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+# Day before yesterday
+
+pizza:
+  food: Pizza
+  calories: 0
+  date: <%= Date.today-2 %>
+  position: 13
+  user: marion
+
+pudding:
+  food: Pudding
+  calories: 0
+  date: <%= Date.today-2 %>
+  position: 7
+  user: marion
+
+champagne:
+  food: Champagne
+  calories: 0
+  date: <%= Date.today-2 %>
+  position: 17
+  user: marion
+
+# Yesterday
+
 strawberries:
   food: Strawberries
   calories: 200
   date: <%= Date.today - 1 %>
+  position: 1
   user: tobias
-
-enchiladas:
-  food: Enchiladas
-  calories: 400
-  date: <%= Date.today %>
-  user: marion
 
 eggnog:
   food: Eggnog
   calories: 400
   date: <%= Date.today - 1 %>
+  position: 3
+  user: marion
+
+# Today
+
+enchiladas:
+  food: Enchiladas
+  calories: 400
+  date: <%= Date.today %>
+  position: 2
   user: marion
