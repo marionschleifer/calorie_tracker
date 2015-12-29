@@ -203,18 +203,18 @@ nav.navbar {
   cursor: move;
 }
 
-td.bar {
-  background-color: #29a385;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 15px;
+.marker {
+  float: left;
+  background-color: #ff33cc;
+  width: 5px;
+  height: 40px;
 }
 
-td.day {
-  padding-top: 15px;
-  font-size: 15px;
+.bar {
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 10px;
 }
 
 // Bootstrap overrides
@@ -224,15 +224,18 @@ td.day {
   width: 90%;
   margin: auto;
   margin-top: 30px;
+  height: 40px;
 }
 
 .progress-bar-success {
   background-color: #00e68a;
 }
 
-.marker {
-  float: left;
-  background-color: #ff33cc;
-  width: 5px;
-  height: 20px;
-}
+.progress span {
+    // position: relative;
+    // display: block;
+    // width: 100%;
+    // color: black;
+ }
+
+
