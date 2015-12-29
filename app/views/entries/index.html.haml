@@ -31,6 +31,18 @@
           %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
       %td
 
+.progress
+  .progress-bar{:role => "progressbar", :style => "width: #{User::CalorieCalculator.new(current_user, @date).weekly_progress}%", class: bar_class(User::CalorieCalculator.new(current_user, @date).weekly_progress, User::CalorieCalculator.new(current_user, @date).ideal_progress)}
+  .display
+    .weekly_calories.white=User::CalorieCalculator.new(current_user, @date).weekly_calories
+    .ideal_calories.white=current_user.target_calories*7
+  %div.marker{:style => "left: #{User::CalorieCalculator.new(current_user, @date).ideal_progress}%"}
+%table.bar
+  %tbody
+    %tr
+      %td.grey.left="Monday"
+      %td.grey.right="Sunday"
+
 :coffee
   $ ->
     $('a.btn.btn-default.glyphicon.glyphicon-calendar').datepicker(todayHighlight: true, weekStart: 1).on 'changeDate', (e) ->
