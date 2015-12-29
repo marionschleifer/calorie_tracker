@@ -4,6 +4,8 @@ class Entry < ActiveRecord::Base
   validates_presence_of :date
   before_create :set_position_number
 
+  scope :ordered, -> { order(:position) }
+
   def info_notice?
     calories.nil?
   end

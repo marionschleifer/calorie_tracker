@@ -216,3 +216,23 @@ td.day {
   padding-top: 15px;
   font-size: 15px;
 }
+
+// Bootstrap overrides
+
+.progress {
+  background-color: #29a385;
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.progress-bar-success {
+  background-color: #00e68a;
+}
+
+.marker {
+  float: left;
+  background-color: #ff33cc;
+  width: 5px;
+  height: 20px;
+}
