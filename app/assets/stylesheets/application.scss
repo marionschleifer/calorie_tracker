@@ -89,6 +89,20 @@ table.entries {
   zoom: 1;
 }
 
+.nav-tabs > li > a:hover {
+  background-color: #00e68a;
+  border-color: #00e68a;
+  color: white;
+}
+
+.nav-tabs > li.active > a:hover {
+  background-color: #00e68a;
+  border: none;
+  border-color: #00e68a;
+  color: white;
+  border-bottom: 3px solid white;
+}
+
 div.navbar {
   background-color: #00e68a;
   margin: auto;
@@ -204,10 +218,11 @@ nav.navbar {
 }
 
 .marker {
-  float: left;
   background-color: #ff33cc;
-  width: 5px;
-  height: 40px;
+  width: 3px;
+  height: 50px;
+  position: absolute;
+  top: -5px;
 }
 
 .bar {
@@ -215,6 +230,29 @@ nav.navbar {
   margin: auto;
   margin-top: 10px;
   font-size: 10px;
+}
+
+.display {
+  width: 90%;
+}
+
+.weekly_calories {
+  float: left;
+  position: absolute;
+  margin: auto;
+  width: 40px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 35px;
+}
+
+.ideal_calories {
+  float: right;
+  text-align: right;
+  margin: auto;
+  width: 40px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 // Bootstrap overrides
@@ -225,17 +263,20 @@ nav.navbar {
   margin: auto;
   margin-top: 30px;
   height: 40px;
+  position: relative;
+  overflow: visible;
 }
 
 .progress-bar-success {
-  background-color: #00e68a;
+  // background-color: #00e68a;
 }
 
-.progress span {
-    // position: relative;
-    // display: block;
-    // width: 100%;
-    // color: black;
+ .progress-bar-success {
+  background-color: #00e68a;
+ }
+
+ .progress-bar-danger {
+  background-color: #ff33cc;
  }
 
 
