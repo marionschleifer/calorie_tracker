@@ -9,6 +9,30 @@ body {
   font-size: 18px;
 }
 
+h1 {
+  text-align: center;
+}
+
+// Containers
+
+.container {
+  width: 60%;
+  background-color: #29a385;
+  padding: 50px;
+}
+
+.container-white {
+  margin-top: 40px;
+  width: 90%;
+  background-color: white;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-bottom: 35px;
+}
+
+// Tables General
+
 td {
   font-size: 20px;
 }
@@ -16,6 +40,89 @@ td {
 hr {
     border-top: 2px solid grey;
 }
+
+// Navbar
+
+div.navbar {
+  background-color: #00e68a;
+  margin: auto;
+  padding: 0px;
+}
+
+nav.navbar {
+  margin-bottom: 0px;
+  width: 60%;
+  margin: auto;
+  padding: 8px;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+.navbar .nav > .active > a {
+    background: none;
+    border: none;
+    color: white;
+    border-bottom: 3px solid white;
+}
+
+// Navtabs
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.nav-tabs > li, .nav-pills > li {
+  float: none;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+.nav-tabs > li > a:hover {
+  background-color: #00e68a;
+  border-color: #00e68a;
+  color: white;
+}
+
+.nav-tabs > li.active > a:hover {
+  background-color: #00e68a;
+  border: none;
+  border-color: #00e68a;
+  color: white;
+  border-bottom: 3px solid white;
+}
+
+.nav-tabs, .nav-pills {
+  text-align: center;
+}
+
+// Form
+
+  input {
+    background-color: grey;
+    color: white;
+  }
+
+  ::-webkit-input-placeholder { color: white; }
+
+  ::-moz-placeholder { color: white; }
+
+  :-ms-input-placeholder { color: green; }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px grey inset;
+  }
+
+  .light-green-button {
+    background-color: #00e68a;
+    color: white;
+    height: 40px;
+  }
+}
+
+// Table Entries
 
 table.entries {
   width: 90%;
@@ -60,96 +167,10 @@ table.entries {
     text-align: right;
   }
 
-  input {
-    background-color: grey;
-    color: white;
-  }
-
-  ::-webkit-input-placeholder { color: white; }
-
-  ::-moz-placeholder { color: white; }
-
-  :-ms-input-placeholder { color: green; }
-
-  input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px grey inset;
-  }
-
-  .light-green-button {
-    background-color: #00e68a;
-    color: white;
-    height: 40px;
-  }
-}
-
-.nav-tabs > li, .nav-pills > li {
-  float: none;
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-}
-
-.nav-tabs > li > a:hover {
-  background-color: #00e68a;
-  border-color: #00e68a;
-  color: white;
-}
-
-.nav-tabs > li.active > a:hover {
-  background-color: #00e68a;
-  border: none;
-  border-color: #00e68a;
-  color: white;
-  border-bottom: 3px solid white;
-}
-
-div.navbar {
-  background-color: #00e68a;
-  margin: auto;
-  padding: 0px;
-}
-
-h1 {
-  text-align: center;
-}
-
-.nav-tabs, .nav-pills {
-  text-align: center;
-}
+// Colors
 
 .grey {
   color: grey;
-}
-
-.container {
-  width: 60%;
-  background-color: #29a385;
-  padding: 50px;
-}
-
-.container-white {
-  margin-top: 40px;
-  width: 90%;
-  background-color: white;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  padding-bottom: 35px;
-}
-
-nav.navbar {
-  margin-bottom: 0px;
-  width: 60%;
-  margin: auto;
-  padding: 8px;
-}
-
-.right {
-  text-align: right;
-}
-
-.left {
-  text-align: left;
 }
 
 .white {
@@ -164,20 +185,17 @@ nav.navbar {
   color: #ff33cc;
 }
 
-.nav-tabs {
-  border-bottom: none;
+// Directions
+
+.right {
+  text-align: right;
 }
 
-.navbar {
-  border-radius: 0px;
+.left {
+  text-align: left;
 }
 
-.navbar .nav > .active > a {
-    background: none;
-    border: none;
-    color: white;
-    border-bottom: 3px solid white;
-}
+// Separator
 
 .separator {
     display: block;
@@ -213,9 +231,13 @@ nav.navbar {
     margin-left: 8px;
 }
 
+// Moving Entries
+
 .crosshair {
   cursor: move;
 }
+
+// Progress Bar
 
 .marker {
   background-color: #ff33cc;
