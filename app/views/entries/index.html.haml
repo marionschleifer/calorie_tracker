@@ -11,7 +11,7 @@
           - else
             %strong.green= User::CalorieCalculator.new(current_user, date).daily_calories
 =render('form')
-%table.entries
+%table.entries.real-table
   %tbody#sortable
     - @entries.each do |entry|
       - if entry.info_notice?

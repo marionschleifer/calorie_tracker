@@ -1,8 +1,8 @@
-= form_for(@entry) do |f|
+= form_for(@entry, remote: true) do |f|
   =f.text_field :date, hidden: true
   %table.entries
     %thead
       %tr
         %td.food=f.text_field :food, :autofocus=> true, :placeholder => "Food", class: 'form-control food'
         %td.calories=f.text_field :calories, :placeholder => "kcal", class: 'form-control calories'
-        %td.submit=f.submit "ok", class: "submit-button btn btn-default", class: 'btn btn-default light-green-button'
+        %td.submit=f.submit "ok", class: 'submit-button btn btn-default light-green-button'

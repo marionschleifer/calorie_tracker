@@ -10,13 +10,16 @@ class EntriesController < ApplicationController
 
   def create
     @entry = current_user.entries.build(entry_params)
-
-    if @entry.save
-      redirect_to entries_path(date: @entry.date)
-    else
-      @entries = current_user.entries.where(date: @entry.date)
-      @date = date
-      render :index
+    respond_to do |format|
+      if @entry.save
+        #format.html { redirect_to entries_path(date: @entry.date) }
+        format.json { render json: @entry, status: :created, location: @entry }
+      else
+        @entries = current_user.entries.where(date: @entry.date)
+        @date = date
+        #format.html { render :index }
+        format.json { render json: @entry.errors, status: :unprocessable_entity }
+      end
     end
   end
 
