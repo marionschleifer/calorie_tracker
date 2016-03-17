@@ -9,7 +9,19 @@ $(document).ready ->
                 </a>
               </td>
             </tr>'
-    $(".entries.real-table tbody").prepend content
+    $(".entries.real-table tbody").append content
+
+    calories = parseInt($(".calories.total-calories strong").text()) + data.calories
+    $(".calories.total-calories strong").text(calories)
+
+    target_calories = $(name=display_calories).val()
+    if calories > target_calories
+      $(".calories.total-calories strong").addClass('pink')
+
+    new_weekly_calories = parseInt($(name=weekly_calculation).val()) + data.calories
+    $(".weekly_calories.white").html(new_weekly_calories)
+
+
   ).on "ajax:error", (e, xhr, status, error) ->
     errorText = 'The following errors were found:\n'
     for field, errors of JSON.parse(xhr.responseText)

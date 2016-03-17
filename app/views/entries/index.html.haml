@@ -19,17 +19,18 @@
       - else
         =render 'entry', entry: entry
 
-    %tr
-      %td(colspan=2)
-        %hr
-    %tr
-      %td.total.space= "Total"
-      %td.calories.space
-        - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
-          %strong.pink= User::CalorieCalculator.new(current_user, @date).daily_calories
-        - else
-          %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
-      %td
+%table.entries
+  %tr
+    %td(colspan=2)
+      %hr
+  %tr
+    %td.total.space= "Total"
+    %td.calories.total-calories.space
+      - if User::CalorieCalculator.new(current_user, @date).daily_calories > current_user.target_calories
+        %strong.pink= User::CalorieCalculator.new(current_user, @date).daily_calories
+      - else
+        %strong.green= User::CalorieCalculator.new(current_user, @date).daily_calories
+    %td
 
 .progress
   .progress-bar{:role => "progressbar", :style => "width: #{User::CalorieCalculator.new(current_user, @date).weekly_progress}%", class: bar_class(User::CalorieCalculator.new(current_user, @date).weekly_progress, User::CalorieCalculator.new(current_user, @date).ideal_progress)}
@@ -42,6 +43,9 @@
     %tr
       %td.grey.left="Monday"
       %td.grey.right="Sunday"
+
+= hidden_field_tag "display_calories", current_user.target_calories
+= hidden_field_tag "weekly_calculation", User::CalorieCalculator.new(current_user, @date).weekly_calories
 
 :coffee
   $ ->
