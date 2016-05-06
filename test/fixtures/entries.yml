@@ -47,3 +47,4 @@ enchiladas:
   date: <%= Date.today %>
   position: 2
   user: marion
+
